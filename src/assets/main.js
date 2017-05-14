@@ -5,14 +5,13 @@ let code = document.getElementById('code');
 
 function guess() {
     let input = document.getElementById('user-guess');
-    let attempts = 0;
-    //add functionality to guess function here
+    
     if (!answer.value && !attempt.value) {
         setHiddenFields();
     }
 
     if (validateInput(input.value)) {
-        attempts += 1;
+        attempt.value++;
     }
     else {
         return false;
@@ -23,7 +22,7 @@ function guess() {
         showAnswer(true);
         showReplay();
     }
-    else if (attempts >= 10) {
+    else if (attempt.value >= 10) {
         setMessage("You Lose! :(");
         showAnswer(false);
         showReplay();
@@ -31,7 +30,6 @@ function guess() {
     else {
         setMessage("Incorrect, try again.");
     }
-
 }
 
 //implement new functions here
